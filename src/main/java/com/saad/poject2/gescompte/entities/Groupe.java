@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -13,7 +16,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "GROUPES")
 @Data @NoArgsConstructor
 public class Groupe implements Serializable{
-
+    @Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codeGroupe;
     private String nomGroupe;
     @ManyToMany(mappedBy = "groupes")

@@ -5,6 +5,6 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("V")
-public class Versement {
+public class Versement extends Operation{
     
 }
