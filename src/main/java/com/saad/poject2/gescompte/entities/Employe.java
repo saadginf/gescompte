@@ -13,8 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
@@ -51,9 +51,9 @@ public class Employe implements Serializable{
     }
     @JsonIgnore
     public Employe getEmployeSup() {
-        return employeSup;
+       return employeSup;
     }
-
+    @JsonSetter
     public void setEmployeSup(Employe employeSup) {
         this.employeSup = employeSup;
     }

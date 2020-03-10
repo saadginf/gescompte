@@ -10,12 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor @ToString
+@NoArgsConstructor @AllArgsConstructor @ToString
 public class Client implements Serializable {
     
     @Id 
@@ -24,5 +26,29 @@ public class Client implements Serializable {
     private String nomClient;
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     private Collection<Compte> comptes;
+
+    public Long getCodeClient() {
+        return codeClient;
+    }
+
+    public void setCodeClient(Long codeClient) {
+        this.codeClient = codeClient;
+    }
+
+    public String getNomClient() {
+        return nomClient;
+    }
+
+    public void setNomClient(String nomClient) {
+        this.nomClient = nomClient;
+    }
+    @JsonIgnore
+    public Collection<Compte> getComptes() {
+        return comptes;
+    }
+
+    public void setComptes(Collection<Compte> comptes) {
+        this.comptes = comptes;
+    }
     
 }
